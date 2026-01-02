@@ -1,3 +1,6 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -37,86 +40,9 @@ nav a:hover {
     background: white;
 }
 
-/* Teacher Cards */
-.card-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    width: 220px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    padding: 15px;
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-/* Gallery */
-.gallery {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.gallery img {
-    width: 250px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-/* Form */
-form {
-    max-width: 400px;
-    margin: auto;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-}
-
-button {
-    background: #2c7be5;
-    color: white;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #1e5bb8;
-}
-
-footer {
-    background: #2c7be5;
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
-
-.contact-info {
-    max-width: 500px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    line-height: 1.8;
-}
-
+/* =========================
+   PRINCIPAL SECTION
+========================= */
 .principal-container {
     max-width: 1000px;
     margin: auto;
@@ -127,7 +53,7 @@ footer {
 }
 
 .principal-image img {
-    width: 140px;     /* SMALL image */
+    width: 140px;
     height: 180px;
     object-fit: cover;
     border-radius: 6px;
@@ -148,4 +74,132 @@ footer {
 .principal-content h3 {
     margin: 4px 0;
     font-size: 16px;
+}
+
+/* =========================
+   TEACHER CARDS (FIXED SIZE)
+========================= */
+.card {
+    background: white;
+    width: 220px;
+    min-width: 220px;      /* prevent shrinking */
+    max-width: 220px;
+    flex: 0 0 auto;        /* DO NOT grow or shrink */
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* =========================
+   SLIDER (TEACHERS + GALLERY)
+========================= */
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 40px;
+    white-space: nowrap;     /* prevent wrapping */
+    scrollbar-width: none;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* Arrow Buttons */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2c7be5;
+    color: white;
+    border: none;
+    font-size: 22px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.arrow:hover {
+    background: #1e5bb8;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+/* =========================
+   GALLERY IMAGES (FIXED SIZE)
+========================= */
+.slider img {
+    width: 260px;
+    min-width: 260px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex: 0 0 auto;
+}
+
+/* =========================
+   CONTACT SECTION
+========================= */
+.contact-info {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    line-height: 1.8;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: #2c7be5;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .principal-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .principal-content {
+        text-align: center;
+    }
+
+    .arrow {
+        font-size: 18px;
+        padding: 6px 10px;
+    }
 }
